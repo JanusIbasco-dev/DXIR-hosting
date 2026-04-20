@@ -752,6 +752,117 @@ tbody tr:hover td {
   grid-template-columns: 1.1fr 0.9fr;
 }
 
+.dashboard-top {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.dashboard-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.summary-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(136, 166, 219, 0.22);
+  background: rgba(255, 255, 255, 0.03);
+  color: #dce9ff;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.portal-shell {
+  display: grid;
+  grid-template-columns: 360px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.portal-sidebar,
+.portal-content,
+.portal-layout {
+  display: grid;
+  gap: 16px;
+}
+
+.portal-layout {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.portal-card {
+  min-height: 100%;
+}
+
+.portal-subhead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.admin-mini-stats {
+  display: grid;
+  gap: 10px;
+}
+
+.admin-mini-stat {
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(136, 166, 219, 0.18);
+}
+
+.admin-mini-stat strong {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.admin-mini-stat span {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.portal-shell .panel,
+.portal-shell .form-card,
+.portal-shell .notice,
+.portal-shell .stat-card,
+.portal-shell .submission-card,
+.portal-shell .feature-card,
+.portal-shell .pricing-card {
+  box-shadow: var(--shadow-lg);
+}
+
+.portal-shell .hero-highlight {
+  background: linear-gradient(145deg, rgba(124, 92, 255, 0.18), rgba(43, 194, 255, 0.1));
+}
+
+.portal-layout .form-card,
+.portal-layout .panel {
+  padding-top: 22px;
+}
+
+.portal-sidebar .quick-list li {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.portal-content .table-wrap table {
+  min-width: 100%;
+}
+
+.portal-content .submission-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
+}
+
 .hero-highlight {
   background: linear-gradient(140deg, rgba(124, 92, 255, 0.22), rgba(43, 194, 255, 0.13));
   border-color: rgba(136, 166, 219, 0.26);
@@ -789,6 +900,21 @@ tbody tr:hover td {
   .auth-layout,
   .dashboard-layout {
     grid-template-columns: 1fr;
+  }
+
+  .portal-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-top,
+  .dashboard-summary {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .portal-subhead {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .section-head,

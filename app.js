@@ -279,6 +279,7 @@ function setupDashboardPage() {
   $('#welcome-name').textContent = session.username;
 
   const planSelect = $('#plan-select');
+  const emailInput = $('#proof-email');
   if (planSelect) {
     planSelect.innerHTML = getPlanOptions();
     const stored = sessionStorage.getItem('dxir_selected_plan');
@@ -294,6 +295,13 @@ function setupDashboardPage() {
   const proofUsername = $('#proof-username');
   if (proofUsername && !proofUsername.value) proofUsername.value = session.username;
   if (fullName && !fullName.value) fullName.value = session.username;
+  const storedEmail = sessionStorage.getItem('dxir_contact_email');
+  if (emailInput && storedEmail && !emailInput.value) emailInput.value = storedEmail;
+  if (emailInput) {
+    emailInput.addEventListener('input', () => {
+      sessionStorage.setItem('dxir_contact_email', emailInput.value.trim());
+    });
+  }
 
   const form = $('#proof-form');
   const message = $('#proof-message');
@@ -337,6 +345,7 @@ function setupDashboardPage() {
           <div>
             <strong style="font-size:1.05rem; color: var(--text);">${escapeHTML(entry.plan)} Plan</strong>
             <div class="muted" style="margin-top:4px;">Reference: ${escapeHTML(entry.reference || '—')}</div>
+            <div class="help" style="margin-top:6px;">E-mail: ${escapeHTML(entry.email || '—')}</div>
           </div>
           ${statusBadge(entry.status)}
         </div>
@@ -356,12 +365,14 @@ function setupDashboardPage() {
       const formData = new FormData(form);
       const fullNameValue = String(formData.get('fullName') || '').trim();
       const usernameValue = String(formData.get('username') || '').trim();
+      const emailValue = String(formData.get('email') || '').trim();
       const plan = String(formData.get('plan') || '').trim();
       const reference = String(formData.get('reference') || '').trim();
       const file = fileInput?.files?.[0];
 
       if (!fullNameValue) return setMessage(message, 'error', 'Please enter your name.');
       if (!usernameValue) return setMessage(message, 'error', 'Please enter your username.');
+      if (!emailValue || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) return setMessage(message, 'error', 'Please enter a valid e-mail address.');
       if (!plan) return setMessage(message, 'error', 'Please select a hosting plan.');
       if (!reference) return setMessage(message, 'error', 'Please enter your GCash reference number.');
       if (!file) return setMessage(message, 'error', 'Please upload your proof of payment.');
@@ -374,6 +385,7 @@ function setupDashboardPage() {
           id: crypto.randomUUID(),
           fullName: fullNameValue,
           username: usernameValue,
+          email: emailValue,
           plan,
           reference,
           proofName: file.name,
@@ -387,10 +399,12 @@ function setupDashboardPage() {
         form.reset();
         if (fullName) fullName.value = session.username;
         if (proofUsername) proofUsername.value = session.username;
+        if (emailInput) emailInput.value = emailValue;
         if (planSelect) planSelect.value = plan;
         updatePreview(null);
         renderUserSubmissions();
         sessionStorage.setItem('dxir_selected_plan', plan);
+        sessionStorage.setItem('dxir_contact_email', emailValue);
       };
       reader.readAsDataURL(file);
     });
@@ -444,7 +458,7 @@ function setupAdminPage() {
           <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;">
             <div>
               <strong style="font-size:1.03rem; color: var(--text);">${escapeHTML(entry.fullName)}</strong>
-              <div class="help">@${escapeHTML(entry.username)} • Plan: ${escapeHTML(entry.plan)} • Ref: ${escapeHTML(entry.reference)}</div>
+              <div class="help">@${escapeHTML(entry.username)} • Email: ${escapeHTML(entry.email || '—')} • Plan: ${escapeHTML(entry.plan)} • Ref: ${escapeHTML(entry.reference)}</div>
             </div>
             ${statusBadge(entry.status)}
           </div>
@@ -483,9 +497,9 @@ function setupAdminPage() {
   };
 
   $('#admin-stats').innerHTML = `
-    <div class="stat-card"><strong>${stats.users}</strong><span>Registered accounts</span></div>
-    <div class="stat-card"><strong>${stats.submissions}</strong><span>Proof submissions</span></div>
-    <div class="stat-card"><strong>${stats.approved}</strong><span>Approved orders</span></div>
+    <div class="admin-mini-stat"><strong>${stats.users}</strong><span>Registered accounts</span></div>
+    <div class="admin-mini-stat"><strong>${stats.submissions}</strong><span>Proof submissions</span></div>
+    <div class="admin-mini-stat"><strong>${stats.approved}</strong><span>Approved orders</span></div>
   `;
 }
 

@@ -19,68 +19,106 @@
     <div class="container">
       <section class="panel hero-highlight" style="margin-bottom:16px;">
         <div class="kicker">User Dashboard</div>
-        <h1 class="page-title">Welcome, <span id="welcome-name">user</span></h1>
-        <p class="section-subtitle">Choose your plan, follow payment instructions, and upload proof to start admin review.</p>
+        <div class="dashboard-top">
+          <div>
+            <h1 class="page-title">Welcome, <span id="welcome-name">user</span></h1>
+            <p class="section-subtitle">Choose your plan, submit proof of payment, and receive your panel details through email after review.</p>
+          </div>
+          <div class="dashboard-summary">
+            <span class="summary-chip">Email required</span>
+            <span class="summary-chip">Proof upload</span>
+            <span class="summary-chip">Admin review</span>
+          </div>
+        </div>
       </section>
 
-      <div class="dashboard-layout">
-        <section class="form-card">
-          <h2>Submit your payment proof</h2>
-          <p id="selected-plan-note" class="help"></p>
-
-          <div class="grid-2" style="margin-top:14px;">
-            <div class="notice">
-              <strong style="color:var(--text);">GCash Number</strong>
-              <div class="code" id="gcash-number"></div>
+      <div class="portal-layout">
+        <aside class="portal-rail">
+          <section class="panel portal-card">
+            <div class="kicker">Client Portal</div>
+            <h2 style="margin-bottom:8px;">Account delivery details</h2>
+            <p style="margin-bottom:0;">Keep your e-mail updated so we can send your panel and hosting details after approval.</p>
+            <div class="notice" style="margin-top:16px;">
+              <strong style="color:var(--text);">Required actions</strong>
+              <ul class="quick-list" style="margin-top:10px;">
+                <li>Select your plan</li>
+                <li>Pay via GCash</li>
+                <li>Upload proof and wait for review</li>
+              </ul>
             </div>
-            <div class="notice">
-              <strong style="color:var(--text);">Account Name</strong>
-              <div class="code" id="gcash-name"></div>
-            </div>
-          </div>
+          </section>
 
-          <form id="proof-form" style="margin-top:20px;">
-            <div class="form-grid">
-              <div class="field">
-                <label for="full-name">Name</label>
-                <input id="full-name" name="fullName" type="text" placeholder="Your full name" required />
+          <section class="panel portal-card">
+            <h2 style="margin-bottom:10px;">Payment summary</h2>
+            <div class="grid-1" style="display:grid; gap:12px;">
+              <div class="notice">
+                <strong style="color:var(--text);">GCash Number</strong>
+                <div class="code" id="gcash-number"></div>
               </div>
-              <div class="field">
-                <label for="proof-username">Username</label>
-                <input id="proof-username" name="username" type="text" placeholder="Your account username" required />
-              </div>
-              <div class="field full">
-                <label for="plan-select">Selected Plan</label>
-                <select id="plan-select" name="plan" required></select>
-              </div>
-              <div class="field full">
-                <label for="reference">Transaction Reference Number</label>
-                <input id="reference" name="reference" type="text" placeholder="GCash reference number" required />
-              </div>
-              <div class="field full">
-                <label for="proof-file">Upload Proof of Payment</label>
-                <input id="proof-file" name="proof" type="file" accept="image/*,.pdf" required />
-                <div class="help">Upload a clear image or PDF under 2.5MB for this demo site.</div>
-              </div>
-              <div class="field full">
-                <button class="btn btn-primary" type="submit">Submit Proof</button>
+              <div class="notice">
+                <strong style="color:var(--text);">Account Name</strong>
+                <div class="code" id="gcash-name"></div>
               </div>
             </div>
-            <div id="proof-message" hidden></div>
-          </form>
-        </section>
+          </section>
+        </aside>
 
-        <section class="panel">
-          <h2>Submission activity</h2>
-          <div id="proof-preview" class="preview">
-            <div class="help">Upload an image or document proof to see a preview here.</div>
-          </div>
+        <div class="dashboard-layout">
+          <section class="form-card portal-card">
+            <h2>Submit your payment proof</h2>
+            <p id="selected-plan-note" class="help"></p>
 
-          <div style="margin-top:20px;">
-            <h2 style="margin-bottom:12px;">Your Submissions</h2>
-            <div id="user-submissions"></div>
-          </div>
-        </section>
+            <form id="proof-form" style="margin-top:18px;">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="full-name">Name</label>
+                  <input id="full-name" name="fullName" type="text" placeholder="Your full name" required />
+                </div>
+                <div class="field">
+                  <label for="proof-username">Username</label>
+                  <input id="proof-username" name="username" type="text" placeholder="Your account username" required />
+                </div>
+                <div class="field full">
+                  <label for="proof-email">E-mail</label>
+                  <input id="proof-email" name="email" type="email" placeholder="name@example.com" required />
+                  <div class="help">We’ll use this to send your panel and delivery details.</div>
+                </div>
+                <div class="field full">
+                  <label for="plan-select">Selected Plan</label>
+                  <select id="plan-select" name="plan" required></select>
+                </div>
+                <div class="field full">
+                  <label for="reference">Transaction Reference Number</label>
+                  <input id="reference" name="reference" type="text" placeholder="GCash reference number" required />
+                </div>
+                <div class="field full">
+                  <label for="proof-file">Upload Proof of Payment</label>
+                  <input id="proof-file" name="proof" type="file" accept="image/*,.pdf" required />
+                  <div class="help">Upload a clear image or PDF under 2.5MB for this demo site.</div>
+                </div>
+                <div class="field full">
+                  <button class="btn btn-primary" type="submit">Submit Proof</button>
+                </div>
+              </div>
+              <div id="proof-message" hidden></div>
+            </form>
+          </section>
+
+          <section class="panel portal-card">
+            <div class="portal-subhead">
+              <h2>Submission activity</h2>
+              <span class="summary-chip">Live preview</span>
+            </div>
+            <div id="proof-preview" class="preview">
+              <div class="help">Upload an image or document proof to see a preview here.</div>
+            </div>
+
+            <div style="margin-top:20px;">
+              <h2 style="margin-bottom:12px;">Your Submissions</h2>
+              <div id="user-submissions"></div>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   </main>

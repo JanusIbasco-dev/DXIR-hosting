@@ -16,37 +16,62 @@
   </header>
 
   <main class="page-shell">
-    <div class="container">
-      <section class="panel hero-highlight" style="margin-bottom:16px;">
-        <div class="kicker">Admin Dashboard</div>
-        <h1 class="page-title">Welcome, <span id="admin-name">admin</span></h1>
-        <p class="section-subtitle">Review user accounts, validate payment receipts, and update order statuses quickly.</p>
-      </section>
+    <div class="container portal-shell">
+      <aside class="portal-sidebar">
+        <section class="panel portal-card hero-highlight">
+          <div class="kicker">Admin Control</div>
+          <h1 class="page-title">Welcome, <span id="admin-name">admin</span></h1>
+          <p class="section-subtitle">Review accounts, manage proof submissions, and approve panel deliveries from one place.</p>
+          <div class="notice" style="margin-top:16px;">
+            <strong style="color:var(--text);">Workflow</strong>
+            <ul class="quick-list" style="margin-top:10px;">
+              <li>Check registered account details</li>
+              <li>Review uploaded proof and e-mail</li>
+              <li>Approve, pending, or reject submissions</li>
+            </ul>
+          </div>
+        </section>
 
-      <section id="admin-stats" class="grid-3" style="margin-bottom:16px;"></section>
+        <section class="panel portal-card">
+          <h2 style="margin-bottom:10px;">Control status</h2>
+          <div class="admin-mini-stats" id="admin-stats"></div>
+        </section>
+      </aside>
 
-      <section class="panel" style="margin-bottom:16px;">
-        <h2>Registered Accounts</h2>
-        <p class="help">Latest registered users are shown here for quick verification.</p>
-        <div class="table-wrap" style="margin-top:12px;">
-          <table>
-            <thead>
-              <tr>
-                <th>Username</th>
-                <th>Role</th>
-                <th>Created</th>
-              </tr>
-            </thead>
-            <tbody id="users-tbody"></tbody>
-          </table>
-        </div>
-      </section>
+      <div class="portal-content">
+        <section class="panel portal-card" style="margin-bottom:16px;">
+          <div class="portal-subhead">
+            <div>
+              <h2>Registered Accounts</h2>
+              <p class="help" style="margin-bottom:0;">Latest registered users are shown here for quick verification.</p>
+            </div>
+            <span class="summary-chip">Accounts</span>
+          </div>
+          <div class="table-wrap" style="margin-top:14px;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Username</th>
+                  <th>Role</th>
+                  <th>Created</th>
+                </tr>
+              </thead>
+              <tbody id="users-tbody"></tbody>
+            </table>
+          </div>
+        </section>
 
-      <section class="panel">
-        <h2>Proof-of-Payment Queue</h2>
-        <p class="help">Set each submission to Pending, Approved, or Rejected after checking details and uploaded proof.</p>
-        <div id="admin-submissions" style="display:grid; gap:16px; margin-top:14px;"></div>
-      </section>
+        <section class="panel portal-card">
+          <div class="portal-subhead">
+            <div>
+              <h2>Proof-of-Payment Queue</h2>
+              <p class="help" style="margin-bottom:0;">Set each submission to Pending, Approved, or Rejected after checking proof and e-mail details.</p>
+            </div>
+            <span class="summary-chip">Review queue</span>
+          </div>
+          <div id="admin-submissions" style="display:grid; gap:16px; margin-top:16px;"></div>
+        </section>
+      </div>
     </div>
   </main>
 </body>
