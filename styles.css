@@ -191,7 +191,11 @@ textarea {
   font-weight: 600;
 }
 
-.hero,
+.hero {
+  padding: 46px 0 64px;
+  animation: fade-rise 0.36s var(--ease-smooth) both;
+}
+
 .page-shell {
   padding: 54px 0 80px;
   animation: fade-rise 0.36s var(--ease-smooth) both;
@@ -199,9 +203,9 @@ textarea {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.25fr 0.95fr;
-  gap: 24px;
-  align-items: stretch;
+  grid-template-columns: 1.32fr 0.78fr;
+  gap: 18px;
+  align-items: start;
 }
 
 .hero h1,
@@ -210,6 +214,11 @@ textarea {
   font-size: clamp(2.15rem, 6.8vw, 4.3rem);
   line-height: 1.02;
   letter-spacing: -0.04em;
+}
+
+.hero-main-title {
+  font-size: clamp(1.85rem, 4.3vw, 3.25rem);
+  line-height: 1.08;
 }
 
 .page-title {
@@ -225,7 +234,7 @@ textarea {
 .hero p {
   max-width: 64ch;
   line-height: 1.78;
-  margin: 16px 0 0;
+  margin: 14px 0 0;
 }
 
 .kicker {
@@ -245,7 +254,7 @@ textarea {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  margin-top: 26px;
+  margin-top: 20px;
 }
 
 .card,
@@ -326,7 +335,8 @@ textarea {
 
 .hero-art {
   display: grid;
-  gap: 16px;
+  gap: 12px;
+  align-content: start;
 }
 
 .art-tile {
