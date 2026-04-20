@@ -14,6 +14,9 @@ A clean, static demo website for a Minecraft server hosting brand.
 - GCash number: `09455897276`
 - Account name: `J***s I.`
 
+## Support
+- Email: `dxir.hosting@gmail.com`
+
 ## Admin Access
 Admin login details are kept private and are not shown on the public site.
 

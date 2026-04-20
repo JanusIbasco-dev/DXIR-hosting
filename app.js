@@ -118,6 +118,22 @@ function renderPricingCards(target) {
   `).join('');
 }
 
+function renderDashboardPlanCards(target) {
+  if (!target) return;
+  target.innerHTML = PLANS.map((plan) => `
+    <article class="pricing-card">
+      <div class="plan-pill">${escapeHTML(plan.ram)} • 24/7 uptime</div>
+      <h3>${escapeHTML(plan.ram)} Plan</h3>
+      <div class="price">${formatPrice(plan.price)} <small>/ month</small></div>
+      <div class="help" style="margin-bottom:10px;">Recommended for about <strong style="color:var(--text);">${escapeHTML(plan.players)}</strong>.</div>
+      <p>${escapeHTML(plan.bestFor)}</p>
+      <div style="margin-top:16px;">
+        <button class="btn btn-secondary js-select-plan" data-plan="${escapeHTML(plan.ram)}" type="button">Use this plan</button>
+      </div>
+    </article>
+  `).join('');
+}
+
 function getPlanOptions(selectedValue = '') {
   return ['Select a plan', ...PLANS.map((plan) => plan.ram)].map((plan) => {
     const value = plan === 'Select a plan' ? '' : plan;
@@ -278,18 +294,45 @@ function setupDashboardPage() {
   if (!session) return;
   $('#welcome-name').textContent = session.username;
 
+  const selectedPlanNote = $('#selected-plan-note');
+  const setSelectedPlanNote = (planValue) => {
+    if (!selectedPlanNote) return;
+    if (!planValue) {
+      selectedPlanNote.textContent = 'Choose a plan first, then pay via GCash and upload proof below.';
+      return;
+    }
+    selectedPlanNote.textContent = `${planValue} selected. Send your GCash payment, then upload proof below.`;
+  };
+
   const planSelect = $('#plan-select');
   const emailInput = $('#proof-email');
   if (planSelect) {
     planSelect.innerHTML = getPlanOptions();
     const stored = sessionStorage.getItem('dxir_selected_plan');
-    if (stored) planSelect.value = stored;
+    if (stored) {
+      planSelect.value = stored;
+      setSelectedPlanNote(stored);
+    }
     planSelect.addEventListener('change', () => {
       sessionStorage.setItem('dxir_selected_plan', planSelect.value);
       const proofUsername = $('#proof-username');
       if (proofUsername && !proofUsername.value) proofUsername.value = session.username;
+      setSelectedPlanNote(planSelect.value);
     });
   }
+
+  renderDashboardPlanCards($('#dashboard-plan-grid'));
+  $$('.js-select-plan').forEach((button) => {
+    button.addEventListener('click', () => {
+      const selectedPlan = button.dataset.plan || '';
+      if (!selectedPlan || !planSelect) return;
+      planSelect.value = selectedPlan;
+      sessionStorage.setItem('dxir_selected_plan', selectedPlan);
+      setSelectedPlanNote(selectedPlan);
+      planSelect.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      planSelect.focus();
+    });
+  });
 
   const fullName = $('#full-name');
   const proofUsername = $('#proof-username');
@@ -412,7 +455,7 @@ function setupDashboardPage() {
 
   $('#gcash-number').textContent = '09455897276';
   $('#gcash-name').textContent = 'J***s I.';
-  $('#selected-plan-note').textContent = 'Choose a plan first, then pay via GCash and upload proof below.';
+  setSelectedPlanNote(planSelect?.value || '');
 }
 
 function setupAdminPage() {
