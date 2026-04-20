@@ -10,13 +10,12 @@ A clean, static demo website for a Minecraft server hosting brand.
 - Admin-only dashboard with account and submission review
 - Responsive layout for desktop and mobile
 
-## Demo Accounts
-- Admin username: `dxiradmin`
-- Admin password: `Jqi200502!`
-
 ## Payment Details
 - GCash number: `09455897276`
 - Account name: `J***s I.`
+
+## Admin Access
+Admin login details are kept private and are not shown on the public site.
 
 ## How to Run
 Open `index.html` directly in a browser.
