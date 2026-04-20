@@ -10,12 +10,12 @@ const ADMIN = {
 };
 
 const PLANS = [
-  { ram: '1GB', price: 49, bestFor: 'Small private worlds, testing, and lightweight gameplay.' },
-  { ram: '2GB', price: 79, bestFor: 'Friends-only servers with a stable Vanilla or Paper setup.' },
-  { ram: '3GB', price: 109, bestFor: 'Balanced performance for active small communities.' },
-  { ram: '4GB', price: 139, bestFor: 'Smooth performance for plugins, moderate farms, and events.' },
-  { ram: '5GB', price: 169, bestFor: 'Bigger worlds with more players and stronger plugin packs.' },
-  { ram: '6GB', price: 199, bestFor: 'The best value for busy SMPs, minigames, and mod-lite setups.' },
+  { ram: '1GB', price: 59, players: '2–4 players', bestFor: 'Small private worlds, testing, and lightweight gameplay.' },
+  { ram: '2GB', price: 89, players: '5–8 players', bestFor: 'Friends-only servers with a stable Vanilla or Paper setup.' },
+  { ram: '3GB', price: 119, players: '8–12 players', bestFor: 'Balanced performance for active small communities.' },
+  { ram: '4GB', price: 149, players: '12–18 players', bestFor: 'Smooth performance for plugins, moderate farms, and events.' },
+  { ram: '5GB', price: 179, players: '18–28 players', bestFor: 'Bigger worlds with more players and stronger plugin packs.' },
+  { ram: '6GB', price: 209, players: '28–40 players', bestFor: 'The best value for busy SMPs, minigames, and mod-lite setups.' },
 ];
 
 const $ = (selector, root = document) => root.querySelector(selector);
@@ -109,6 +109,7 @@ function renderPricingCards(target) {
       <div class="plan-pill">Minecraft Hosting • ${escapeHTML(plan.ram)}</div>
       <h3>${escapeHTML(plan.ram)} Plan</h3>
       <div class="price">${formatPrice(plan.price)} <small>/ month</small></div>
+      <div class="help" style="margin-bottom:10px;">Recommended for about <strong style="color:var(--text);">${escapeHTML(plan.players)}</strong>.</div>
       <p>${escapeHTML(plan.bestFor)}</p>
       <div style="margin-top:18px;">
         <a class="btn btn-primary" href="register.html">Choose Plan</a>
