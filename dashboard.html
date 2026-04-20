@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | DXIR Hosting</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="app.js"></script>
+</head>
+<body data-page="dashboard">
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand js-logo" href="index.html" data-label="User dashboard"></a>
+      <nav class="nav-links js-session-state"></nav>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <div class="container">
+      <section class="panel" style="margin-bottom:20px;">
+        <div class="kicker">User Dashboard</div>
+        <h1 class="page-title">Welcome, <span id="welcome-name">user</span></h1>
+        <p class="section-subtitle">Select a plan, send your GCash payment, then upload your proof for review.</p>
+      </section>
+
+      <div class="submission-grid">
+        <section class="form-card">
+          <h2>Payment Instructions</h2>
+          <p id="selected-plan-note" class="help"></p>
+          <div class="notice">
+            <strong style="color:var(--text);">GCash Number</strong>
+            <div class="code" id="gcash-number"></div>
+          </div>
+          <div class="notice">
+            <strong style="color:var(--text);">Account Name</strong>
+            <div class="code" id="gcash-name"></div>
+          </div>
+
+          <form id="proof-form" style="margin-top:22px;">
+            <div class="form-grid">
+              <div class="field">
+                <label for="full-name">Name</label>
+                <input id="full-name" name="fullName" type="text" placeholder="Your full name" required />
+              </div>
+              <div class="field">
+                <label for="proof-username">Username</label>
+                <input id="proof-username" name="username" type="text" placeholder="Your account username" required />
+              </div>
+              <div class="field full">
+                <label for="plan-select">Selected Plan</label>
+                <select id="plan-select" name="plan" required></select>
+              </div>
+              <div class="field full">
+                <label for="reference">Transaction Reference Number</label>
+                <input id="reference" name="reference" type="text" placeholder="GCash reference number" required />
+              </div>
+              <div class="field full">
+                <label for="proof-file">Upload Proof of Payment</label>
+                <input id="proof-file" name="proof" type="file" accept="image/*,.pdf" required />
+                <div class="help">Images and document files are accepted for this demo site.</div>
+              </div>
+              <div class="field full">
+                <button class="btn btn-primary" type="submit">Submit Proof</button>
+              </div>
+            </div>
+            <div id="proof-message" hidden></div>
+          </form>
+        </section>
+
+        <section class="panel">
+          <h2>Proof Preview</h2>
+          <div id="proof-preview" class="preview">
+            <div class="help">Upload an image or document proof to see a preview here.</div>
+          </div>
+          <div style="margin-top:22px;">
+            <h2 style="margin-bottom:12px;">Your Submissions</h2>
+            <div id="user-submissions" class="grid-1"></div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
+

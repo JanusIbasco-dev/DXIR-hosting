@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard | DXIR Hosting</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="app.js"></script>
+</head>
+<body data-page="admin">
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand js-logo" href="index.html" data-label="Admin-only area"></a>
+      <nav class="nav-links js-session-state"></nav>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <div class="container">
+      <section class="panel" style="margin-bottom:20px;">
+        <div class="kicker">Admin Dashboard</div>
+        <h1 class="page-title">Welcome, <span id="admin-name">admin</span></h1>
+        <p class="section-subtitle">Review registered accounts, payment proofs, and update status for each submission.</p>
+      </section>
+
+      <div class="grid-3" id="admin-stats" style="margin-bottom:22px;"></div>
+
+      <section class="panel" style="margin-bottom:22px;">
+        <h2>Registered Accounts</h2>
+        <div class="table-wrap" style="margin-top:14px;">
+          <table>
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th>Role</th>
+                <th>Created</th>
+              </tr>
+            </thead>
+            <tbody id="users-tbody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Proof-of-Payment Submissions</h2>
+        <p class="help">Open the proof, review the details, then mark the status as Pending, Approved, or Rejected.</p>
+        <div id="admin-submissions" class="grid-1" style="display:grid;gap:16px;margin-top:16px;"></div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
+

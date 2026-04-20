@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register | DXIR Hosting</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="app.js"></script>
+</head>
+<body data-page="register">
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand js-logo" href="index.html" data-label="Create your account"></a>
+      <nav class="nav-links js-session-state"></nav>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <div class="container grid-2">
+      <section class="form-card">
+        <div class="kicker">Register</div>
+        <h1 class="page-title">Create your DXIR Hosting account</h1>
+        <p class="section-subtitle">No verification needed. Just register and start choosing a Minecraft hosting plan.</p>
+
+        <form id="register-form" style="margin-top:22px;">
+          <div class="form-grid">
+            <div class="field full">
+              <label for="username">Username</label>
+              <input id="username" name="username" type="text" placeholder="Choose a username" required />
+            </div>
+            <div class="field">
+              <label for="password">Password</label>
+              <input id="password" name="password" type="password" placeholder="Create a password" required />
+            </div>
+            <div class="field">
+              <label for="confirm">Confirm Password</label>
+              <input id="confirm" name="confirm" type="password" placeholder="Repeat password" required />
+            </div>
+            <div class="field full">
+              <button class="btn btn-primary" type="submit">Create Account</button>
+            </div>
+          </div>
+          <div id="register-message" hidden></div>
+        </form>
+      </section>
+
+      <aside class="panel">
+        <h2>Why DXIR Hosting?</h2>
+        <p>Clean dark UI, clear pricing, GCash support, and a simple proof-of-payment workflow for your Minecraft server order.</p>
+        <div class="notice">
+          <strong style="color:var(--text);">Next step after register:</strong>
+          <div class="help">Login, choose your plan, send your GCash payment, and upload proof for admin review.</div>
+        </div>
+        <div class="notice">
+          <strong style="color:var(--text);">Payment Method</strong>
+          <div class="help">GCash only • 09455897276 • J***s I.</div>
+        </div>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>
+
