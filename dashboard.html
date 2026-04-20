@@ -23,7 +23,7 @@
           <h1 class="page-title">Welcome, <span id="welcome-name">user</span></h1>
           <p class="section-subtitle">Submit your proof of payment and receive your panel details through e-mail after review.</p>
 
-          <div class="dashboard-summary" style="margin-top:16px; justify-content:flex-start;">
+          <div class="dashboard-summary dashboard-summary-left">
             <span class="summary-chip">E-mail required</span>
             <span class="summary-chip">Proof upload</span>
             <span class="summary-chip">Admin review</span>
@@ -35,7 +35,7 @@
             <h2>Payment summary</h2>
             <span class="summary-chip">GCash only</span>
           </div>
-          <p class="help" style="margin-top:0;">Use the details below before uploading your receipt.</p>
+          <p class="help help-compact">Use the details below before uploading your receipt.</p>
           <div class="notice">
             <strong style="color:var(--text);">GCash Number</strong>
             <div class="code" id="gcash-number"></div>
@@ -47,13 +47,13 @@
         </section>
 
         <section class="panel portal-card">
-          <h2 style="margin-bottom:8px;">Quick checklist</h2>
+          <h2 class="section-title-tight">Quick checklist</h2>
           <ul class="quick-list">
             <li>Select the plan you paid for</li>
             <li>Enter the exact e-mail for delivery</li>
             <li>Upload a clear image or PDF receipt</li>
           </ul>
-          <div class="help" style="margin-top:12px;">Support: <a href="mailto:dxir.hosting@gmail.com">dxir.hosting@gmail.com</a></div>
+          <div class="help support-line">Support: <a href="mailto:dxir.hosting@gmail.com">dxir.hosting@gmail.com</a></div>
         </section>
       </aside>
 
@@ -62,11 +62,11 @@
           <div class="portal-subhead">
             <div>
               <h2>Available Plans</h2>
-              <p class="help" style="margin-bottom:0;">Choose a plan below and it will be selected automatically in your proof form.</p>
+              <p class="help help-compact-bottom">Choose a plan below and it will be selected automatically in your proof form.</p>
             </div>
             <span class="summary-chip">24/7 uptime</span>
           </div>
-          <div id="dashboard-plan-grid" class="grid-3" style="margin-top:14px;"></div>
+          <div id="dashboard-plan-grid" class="grid-3 dashboard-plan-grid"></div>
         </section>
 
         <section class="form-card portal-card">
@@ -78,7 +78,7 @@
             <span class="summary-chip">Secure submission</span>
           </div>
 
-          <form id="proof-form" style="margin-top:18px;">
+          <form id="proof-form" class="dashboard-form">
             <div class="form-grid">
               <div class="field">
                 <label for="full-name">Name</label>
@@ -123,8 +123,8 @@
             <div class="help">Upload an image or document proof to see a preview here.</div>
           </div>
 
-          <div style="margin-top:20px;">
-            <h2 style="margin-bottom:12px;">Your Submissions</h2>
+          <div class="dashboard-submissions-wrap">
+            <h2 class="dashboard-submissions-title">Your Submissions</h2>
             <div id="user-submissions"></div>
           </div>
         </section>

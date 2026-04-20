@@ -780,6 +780,43 @@ tbody tr:hover td {
   font-weight: 700;
 }
 
+.dashboard-summary-left {
+  margin-top: 16px;
+  justify-content: flex-start;
+}
+
+.help-compact {
+  margin-top: 0;
+}
+
+.help-compact-bottom {
+  margin-bottom: 0;
+}
+
+.section-title-tight {
+  margin-bottom: 8px;
+}
+
+.support-line {
+  margin-top: 12px;
+}
+
+.dashboard-plan-grid {
+  margin-top: 14px;
+}
+
+.dashboard-form {
+  margin-top: 18px;
+}
+
+.dashboard-submissions-wrap {
+  margin-top: 20px;
+}
+
+.dashboard-submissions-title {
+  margin-bottom: 12px;
+}
+
 .portal-shell {
   display: grid;
   grid-template-columns: 360px minmax(0, 1fr);
