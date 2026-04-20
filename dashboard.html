@@ -10,33 +10,36 @@
 <body data-page="dashboard">
   <header class="site-header">
     <div class="container navbar">
-      <a class="brand js-logo" href="index.html" data-label="User dashboard"></a>
+      <a class="brand js-logo" href="index.html" data-label="Client dashboard"></a>
       <nav class="nav-links js-session-state"></nav>
     </div>
   </header>
 
   <main class="page-shell">
     <div class="container">
-      <section class="panel" style="margin-bottom:20px;">
+      <section class="panel hero-highlight" style="margin-bottom:16px;">
         <div class="kicker">User Dashboard</div>
         <h1 class="page-title">Welcome, <span id="welcome-name">user</span></h1>
-        <p class="section-subtitle">Select a plan, send your GCash payment, then upload your proof for review.</p>
+        <p class="section-subtitle">Choose your plan, follow payment instructions, and upload proof to start admin review.</p>
       </section>
 
-      <div class="submission-grid">
+      <div class="dashboard-layout">
         <section class="form-card">
-          <h2>Payment Instructions</h2>
+          <h2>Submit your payment proof</h2>
           <p id="selected-plan-note" class="help"></p>
-          <div class="notice">
-            <strong style="color:var(--text);">GCash Number</strong>
-            <div class="code" id="gcash-number"></div>
-          </div>
-          <div class="notice">
-            <strong style="color:var(--text);">Account Name</strong>
-            <div class="code" id="gcash-name"></div>
+
+          <div class="grid-2" style="margin-top:14px;">
+            <div class="notice">
+              <strong style="color:var(--text);">GCash Number</strong>
+              <div class="code" id="gcash-number"></div>
+            </div>
+            <div class="notice">
+              <strong style="color:var(--text);">Account Name</strong>
+              <div class="code" id="gcash-name"></div>
+            </div>
           </div>
 
-          <form id="proof-form" style="margin-top:22px;">
+          <form id="proof-form" style="margin-top:20px;">
             <div class="form-grid">
               <div class="field">
                 <label for="full-name">Name</label>
@@ -57,7 +60,7 @@
               <div class="field full">
                 <label for="proof-file">Upload Proof of Payment</label>
                 <input id="proof-file" name="proof" type="file" accept="image/*,.pdf" required />
-                <div class="help">Images and document files are accepted for this demo site.</div>
+                <div class="help">Upload a clear image or PDF under 2.5MB for this demo site.</div>
               </div>
               <div class="field full">
                 <button class="btn btn-primary" type="submit">Submit Proof</button>
@@ -68,13 +71,14 @@
         </section>
 
         <section class="panel">
-          <h2>Proof Preview</h2>
+          <h2>Submission activity</h2>
           <div id="proof-preview" class="preview">
             <div class="help">Upload an image or document proof to see a preview here.</div>
           </div>
-          <div style="margin-top:22px;">
+
+          <div style="margin-top:20px;">
             <h2 style="margin-bottom:12px;">Your Submissions</h2>
-            <div id="user-submissions" class="grid-1"></div>
+            <div id="user-submissions"></div>
           </div>
         </section>
       </div>
@@ -82,4 +86,3 @@
   </main>
 </body>
 </html>
-

@@ -10,24 +10,25 @@
 <body data-page="admin">
   <header class="site-header">
     <div class="container navbar">
-      <a class="brand js-logo" href="index.html" data-label="Admin-only area"></a>
+      <a class="brand js-logo" href="index.html" data-label="Admin control panel"></a>
       <nav class="nav-links js-session-state"></nav>
     </div>
   </header>
 
   <main class="page-shell">
     <div class="container">
-      <section class="panel" style="margin-bottom:20px;">
+      <section class="panel hero-highlight" style="margin-bottom:16px;">
         <div class="kicker">Admin Dashboard</div>
         <h1 class="page-title">Welcome, <span id="admin-name">admin</span></h1>
-        <p class="section-subtitle">Review registered accounts, payment proofs, and update status for each submission.</p>
+        <p class="section-subtitle">Review user accounts, validate payment receipts, and update order statuses quickly.</p>
       </section>
 
-      <div class="grid-3" id="admin-stats" style="margin-bottom:22px;"></div>
+      <section id="admin-stats" class="grid-3" style="margin-bottom:16px;"></section>
 
-      <section class="panel" style="margin-bottom:22px;">
+      <section class="panel" style="margin-bottom:16px;">
         <h2>Registered Accounts</h2>
-        <div class="table-wrap" style="margin-top:14px;">
+        <p class="help">Latest registered users are shown here for quick verification.</p>
+        <div class="table-wrap" style="margin-top:12px;">
           <table>
             <thead>
               <tr>
@@ -42,12 +43,11 @@
       </section>
 
       <section class="panel">
-        <h2>Proof-of-Payment Submissions</h2>
-        <p class="help">Open the proof, review the details, then mark the status as Pending, Approved, or Rejected.</p>
-        <div id="admin-submissions" class="grid-1" style="display:grid;gap:16px;margin-top:16px;"></div>
+        <h2>Proof-of-Payment Queue</h2>
+        <p class="help">Set each submission to Pending, Approved, or Rejected after checking details and uploaded proof.</p>
+        <div id="admin-submissions" style="display:grid; gap:16px; margin-top:14px;"></div>
       </section>
     </div>
   </main>
 </body>
 </html>
-
