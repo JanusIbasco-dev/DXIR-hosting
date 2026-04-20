@@ -917,6 +917,14 @@ tbody tr:hover td {
     align-items: flex-start;
   }
 
+  .portal-shell .page-title {
+    font-size: clamp(1.8rem, 7vw, 2.35rem);
+  }
+
+  .portal-shell .section-subtitle {
+    max-width: 60ch;
+  }
+
   .section-head,
   .footer-grid,
   .navbar {
@@ -943,6 +951,102 @@ tbody tr:hover td {
     width: min(var(--max), calc(100% - 20px));
   }
 
+  .section {
+    padding: 22px 0 56px;
+  }
+
+  .section-head {
+    margin-bottom: 16px;
+    gap: 10px;
+  }
+
+  .pricing-card {
+    padding: 16px;
+  }
+
+  .pricing-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+  }
+
+  .pricing-card p {
+    font-size: 0.93rem;
+    line-height: 1.6;
+  }
+
+  .pricing-card .price {
+    font-size: 1.65rem;
+    margin: 6px 0;
+  }
+
+  .pricing-card .price small {
+    font-size: 0.88rem;
+  }
+
+  .pricing-card .plan-pill {
+    width: fit-content;
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.35;
+  }
+
+  #pricing .section-head .btn {
+    margin-top: 4px;
+  }
+
+  .portal-shell {
+    gap: 12px;
+  }
+
+  .dashboard-summary,
+  .summary-chip {
+    width: 100%;
+  }
+
+  .summary-chip {
+    justify-content: center;
+  }
+
+  .portal-card,
+  .portal-shell .panel,
+  .portal-shell .form-card,
+  .portal-shell .notice,
+  .portal-shell .submission-card,
+  .portal-shell .admin-mini-stat {
+    padding: 16px;
+  }
+
+  .portal-shell .page-title {
+    font-size: clamp(1.65rem, 8vw, 2rem);
+  }
+
+  .portal-shell .section-subtitle,
+  .help,
+  .quick-list li,
+  td {
+    font-size: 0.9rem;
+  }
+
+  .portal-subhead h2,
+  .dashboard-top h1,
+  .portal-shell .panel h2,
+  .portal-shell .form-card h2 {
+    font-size: clamp(1.2rem, 5vw, 1.55rem);
+  }
+
+  .portal-content .table-wrap {
+    margin-top: 10px;
+  }
+
+  table {
+    min-width: 560px;
+  }
+
+  th,
+  td {
+    padding: 10px 8px;
+  }
+
   .card,
   .panel,
   .form-card,
@@ -957,6 +1061,13 @@ tbody tr:hover td {
 
   .btn {
     width: 100%;
+  }
+
+  .portal-shell .code {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    word-break: break-word;
   }
 }
 

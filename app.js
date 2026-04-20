@@ -10,12 +10,12 @@ const ADMIN = {
 };
 
 const PLANS = [
-  { ram: '1GB', price: 59, players: '2–4 players', bestFor: 'Small private worlds, testing, and lightweight gameplay.' },
-  { ram: '2GB', price: 89, players: '5–8 players', bestFor: 'Friends-only servers with a stable Vanilla or Paper setup.' },
-  { ram: '3GB', price: 119, players: '8–12 players', bestFor: 'Balanced performance for active small communities.' },
-  { ram: '4GB', price: 149, players: '12–18 players', bestFor: 'Smooth performance for plugins, moderate farms, and events.' },
-  { ram: '5GB', price: 179, players: '18–28 players', bestFor: 'Bigger worlds with more players and stronger plugin packs.' },
-  { ram: '6GB', price: 209, players: '28–40 players', bestFor: 'The best value for busy SMPs, minigames, and mod-lite setups.' },
+  { ram: '1GB', price: 59, players: '2–4 players', bestFor: '24/7 uptime for small private worlds, testing, and lightweight gameplay.' },
+  { ram: '2GB', price: 89, players: '5–8 players', bestFor: '24/7 uptime for friends-only servers with a stable Vanilla or Paper setup.' },
+  { ram: '3GB', price: 119, players: '8–12 players', bestFor: '24/7 uptime with balanced performance for active small communities.' },
+  { ram: '4GB', price: 149, players: '12–18 players', bestFor: '24/7 uptime for smooth plugins, moderate farms, and events.' },
+  { ram: '5GB', price: 179, players: '18–28 players', bestFor: '24/7 uptime for bigger worlds with stronger plugin packs.' },
+  { ram: '6GB', price: 209, players: '28–40 players', bestFor: '24/7 uptime for busy SMPs, minigames, and mod-lite setups.' },
 ];
 
 const $ = (selector, root = document) => root.querySelector(selector);
